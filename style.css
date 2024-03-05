@@ -1,0 +1,305 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /*se mantiene el width y el height (a pesar del padding y del border)*/
+    font-family: "roboto mono", monospace;
+    text-decoration: none;
+    /*se quita la decoración de los textos*/
+    list-style: none;
+    /*se quita la decoración de las listas*/
+    color: white;
+}
+
+body {
+    background-color: black;
+    /*TO DO: SACAR EL FONDO NEGRO*/
+}
+
+header {
+    position: fixed;
+    /*el header se fija en la parte superior*/
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    /*el header se muestra por encima*/
+    display: flex;
+    /*los elementos se acomodan en línea*/
+    align-items: center;
+    /*centrado verticalmente*/
+    justify-content: space-between;
+    /*los elementos se separan*/
+    padding: 12px 2%;
+    background-color: transparent;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.navbar {
+    display: flex;
+    /*para que los elementos de la lista se pongan en línea*/
+}
+
+.navbar a {
+    margin-left: 30px;
+    /*para separar las palabras*/
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    /*subrayado transparente*/
+    transition: all .5s ease;
+    /*para transicionar todas las características*/
+}
+
+.navbar a:hover {
+    border-bottom: 1px solid white;
+    /*cuando pasamos arriba con el mouse se agrega un subrayado blanco*/
+}
+
+#menu-icon {
+    display: none;
+    /*lo pongo en none para que sólo se vea cuando el tamaño de la pantalla sea menor*/
+}
+
+#menu-icon {
+    font-size: 30px;
+    z-index: 110;
+    /*para que esté sobre el header*/
+    cursor: pointer;
+    /*para que aparezca la manito cuando pasemos el mouse por encima*/
+}
+
+#menu-toggle {
+    display: none;
+    /*para que nunca sea vea el checkbox*/
+}
+
+.menu-icon-action {
+    display: block;
+    /*para que no se le pueda hacer click*/
+}
+
+.hero {
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    /*para que ocupe todo el alto mínimo disponible*/
+    background: linear-gradient(245.59deg, #31494e 0%, #385e70 25%, #131313 75%);
+    /*fondo degradado: ángulo en el cual se hace el degradé; cuando empieza (0%) es de un color...*/
+    position: relative;
+    /*para darle top, right, bottom y left*/
+    display: grid;
+    /*para que en el hero se separe el texto de la img*/
+    grid-template-columns: 1fr 1fr;
+    /*dos columnas*/
+    align-items: center;
+    /*alinea verticalmente el hero*/
+    gap: 2rem;
+    /*para que haya espacio entre las columnas*/
+}
+
+section {
+    padding: 0 8%;
+}
+
+.hero-text h5 {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.hero-text h4 {
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.hero-text h1 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.hero-text p {
+    font-size: 80%;
+    /*para que sea responsive; es el 80% del contenedor (section)*/
+    font-weight: 400;
+    margin-bottom: 15px;
+}
+
+.hero-text a {
+    display: inline-block;
+    /*para poder darle width y height*/
+    font-size: 15px;
+    font-weight: 400;
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 15px 30px;
+    /*TO DO: QUE QUEDEN PAREJOS LOS BOTONES*/
+    transition: all .4s ease;
+}
+
+.hero-text a:hover {
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(4px);
+    /*se corre sobre el eje X (horizontal) hacia la derecha*/
+}
+
+.hero-text .github {
+    margin-left: 5px;
+}
+
+.hero-text .linkedin i {
+    vertical-align: middle;
+    /*para centrar el ícono*/
+    margin-right: 5px;
+}
+
+.hero-text .github i {
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.hero-img img {
+    width: 400px;
+    margin: 10% 0 0 10%;
+    /*top, right, bottom y left*/
+    height: auto;
+    transition: all 4s linear;
+}
+
+.hero-img img:hover {
+    width: 450px;
+    opacity: .4;
+}
+
+.icons {
+    position: absolute;
+    top: 50vh;
+    /*para que quede a la mitad de la pantalla*/
+    padding: 0 2%;
+    transform: translateY(-50%);
+}
+
+.icons i {
+    display: block;
+    margin: 26px 0;
+    font-size: 20px;
+    /*tamaño del ícono*/
+    transition: all .4s ease;
+}
+
+.icons i:hover {
+    color: #4d4d4d;
+    transform: translateY(-4px);
+    /*se corre sobre el eje Y (vertical) hacia arriba*/
+}
+
+.scroll-down {
+    position: absolute;
+    bottom: 2%;
+    right: 2%;
+}
+
+.scroll-down i {
+    display: block;
+    padding: 10px;
+    font-size: 25px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all .4s ease;
+}
+
+.scroll-down i:hover {
+    transform: translateY(-4px);
+}
+
+/*Acá vamos a hacer media queries para que la web sea responsive*/
+@media screen and (max-width: 992px) {
+    section {
+        padding: 0 2%;
+        transition: .2s;
+    }
+
+    .hero-text {
+        padding-top: 0;
+    }
+
+    .hero-text p {
+        font-size: 70%;
+    }
+
+    .hero-img {
+        text-align: center;
+    }
+
+    .hero-img img {
+        width: 80%;
+        margin: 10% 0 0 10%;
+    }
+
+    .icons {
+        display: none;
+        /*para que no se vean los íconos de la izquierda (redes sociales)*/
+    }
+
+    .scroll-down {
+        display: none;
+        /*sacamos el scroll down*/
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-icon-action {
+        display: block; /*para mostrar el menú que habíamos ocultado*/
+    }
+
+    #menu-icon {
+        display: block;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-top: 100px;
+    }
+
+    .hero-img img {
+        margin: 0;
+    }
+
+    .hero {
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr; /*para que la imagen pase abajo del texto*/
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: #21383d;
+        display: flex;
+        flex-direction: column; /*para que se ponga uno abajo del otro*/
+        align-items: center;
+        padding: 30px 20px;
+        transition: all .4s ease;
+    }
+
+    .navbar a {
+        margin: 6px 0;
+        display: block;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul {
+        right: 0;
+    }
+
+}
